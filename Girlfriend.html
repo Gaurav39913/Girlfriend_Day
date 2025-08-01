@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend Day ❤️</title>
+<style>
+    body {
+        background: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    h1 {
+        color: white;
+        font-size: 3em;
+        text-shadow: 2px 2px 5px red;
+        animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+        from { text-shadow: 0 0 10px red; }
+        to { text-shadow: 0 0 20px yellow; }
+    }
+    .hearts {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .heart {
+        position: absolute;
+        color: red;
+        font-size: 2rem;
+        animation: float 5s linear infinite;
+    }
+    @keyframes float {
+        0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+        50% { opacity: 1; }
+        100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+    <div class="hearts"></div>
+    <h1>💖 Happy Girlfriend Day 💖</h1>
+    <h2>Love you forever! ❤️</h2>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        heart.innerText = "❤️";
+        document.querySelector(".hearts").appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+</script>
+</body>
+</html>
